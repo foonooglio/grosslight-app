@@ -101,6 +101,34 @@ export default function IntakePage() {
 
   const [submitting, setSubmitting] = useState(false)
 
+  function fillTestDataB() {
+    // Type B — Luis Montalvo / Iglesias Dairy (problem-minded)
+    setFirstName('Luis')
+    setLastName('Montalvo')
+    setPhone('787-555-0300')
+    setCityState('Hatillo, PR')
+    setCountry('Puerto Rico')
+    setIndustry('Dairy Farm Management')
+    setClientType('business')
+    setCompanyName('Iglesias Dairy')
+    setJobTitle('Farm Owner')
+    setReferralSource('other')
+    setSolutionInMind('no')
+    setWhatYouDo('My son runs a vegetable and dairy farm in Hatillo, Puerto Rico. I oversee operations and manage the workforce.')
+    setProblemSolve('His employees stand around doing nothing a lot. We have no way to see what tasks are actually getting done during the day.')
+    setProblemGone('The farm would be more active and lots of new projects could be undertaken. We could grow faster.')
+    setHowOften('daily')
+    setHowMany('9 employees across the farm')
+    setCostYou('Lost productivity every day. We lose thousands when people are idle and we have no visibility into why.')
+    setCurrentlyHandling('I expect them to listen and do what I tell them verbally. Jorge uses a whiteboard and writes down tasks but nobody updates it.')
+    setWrongWithCurrent('Finished activity updates do not happen so no one knows what actually gets finished. People forget or ignore the whiteboard.')
+    setTriedAnything('No, the whiteboard was the newest solution we tried.')
+    setWhoElse('Me, Jorge, Charles, Noel, Macho, Jean, Ashley, Edwin, and Zion.')
+    setDeadlineB('no')
+    setComplianceB('no')
+    setAnythingElseB('We need something simple that workers will actually use. They are not tech savvy.')
+  }
+
   function fillTestData() {
     // Profile
     setFirstName('Jorge')
