@@ -172,7 +172,7 @@ export default function AuthPage() {
         )}
       </div>
     <div className="text-center pb-4">
-        <span className="text-xs text-gray-300">v22</span>
+        <span className="text-xs text-gray-300">v23</span>
       </div>
     </div>
   )
