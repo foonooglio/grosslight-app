@@ -269,13 +269,22 @@ export default function IntakePage() {
       <h1 className="text-2xl font-bold text-gray-900">{t.intakeTitle}</h1>
 
       {/* Test data button */}
-      <button
-        type="button"
-        onClick={fillTestData}
-        className="w-full py-2 border-2 border-dashed border-gray-300 text-gray-400 text-xs rounded-lg hover:border-green-400 hover:text-green-600 transition"
-      >
-        ⚡ Fill test data
-      </button>
+      <div className="grid grid-cols-2 gap-2">
+        <button
+          type="button"
+          onClick={fillTestData}
+          className="py-2 border-2 border-dashed border-gray-300 text-gray-400 text-xs rounded-lg hover:border-green-400 hover:text-green-600 transition"
+        >
+          ⚡ Type A — Jorge
+        </button>
+        <button
+          type="button"
+          onClick={fillTestDataB}
+          className="py-2 border-2 border-dashed border-gray-300 text-gray-400 text-xs rounded-lg hover:border-blue-400 hover:text-blue-600 transition"
+        >
+          ⚡ Type B — Luis
+        </button>
+      </div>
 
       {/* Section 1 */}
       <section className="space-y-4">
