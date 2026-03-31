@@ -108,7 +108,7 @@ export default function IntakePage() {
     setPhone('787-555-0100')
     setCityState('San Juan, PR')
     setCountry('United States')
-    setIndustry('Agricultural Technology')
+    setIndustry('Agricultural Technology / Farm Management')
     setClientType('business')
     setCompanyName('EnPro Farms')
     setJobTitle('Product Owner')
