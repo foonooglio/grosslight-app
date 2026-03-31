@@ -98,7 +98,7 @@ export const translations = {
     // Thank you
     allSet: "You're all set!",
     thankYouBody: "We've received your submission and will be in touch shortly. Talk to you soon.",
-    thankYouContact: 'Questions? Email us at hello@grosslightconsulting.com',
+    thankYouContact: 'Questions? Email us at charles@grosslightconsulting.com',
   },
   es: {
     brand: 'Grosslight Consulting',
@@ -188,7 +188,7 @@ export const translations = {
     doneSubmit: 'Listo — Enviar Mi Información',
     allSet: '¡Todo listo!',
     thankYouBody: 'Hemos recibido tu solicitud y nos pondremos en contacto pronto. ¡Hasta pronto!',
-    thankYouContact: '¿Preguntas? Escríbenos a hello@grosslightconsulting.com',
+    thankYouContact: '¿Preguntas? Escríbenos a charles@grosslightconsulting.com',
   },
 }
 
