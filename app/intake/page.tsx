@@ -240,6 +240,15 @@ export default function IntakePage() {
     <form onSubmit={handleSubmit} className="space-y-8">
       <h1 className="text-2xl font-bold text-gray-900">{t.intakeTitle}</h1>
 
+      {/* Test data button */}
+      <button
+        type="button"
+        onClick={fillTestData}
+        className="w-full py-2 border-2 border-dashed border-gray-300 text-gray-400 text-xs rounded-lg hover:border-green-400 hover:text-green-600 transition"
+      >
+        ⚡ Fill test data
+      </button>
+
       {/* Section 1 */}
       <section className="space-y-4">
         <h2 className={sectionHeaderClass}>{t.section1}</h2>
