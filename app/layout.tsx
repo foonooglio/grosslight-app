@@ -17,9 +17,7 @@ export default function RootLayout({
       <body className="min-h-screen bg-white">
         <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
           <div className="max-w-[480px] mx-auto px-4 py-3 flex items-center justify-between">
-            <span className="font-bold text-[#15803d] text-lg tracking-tight">
-              Grosslight Consulting
-            </span>
+            <a href="https://app.grosslightconsulting.com" className="font-bold text-[#15803d] text-lg tracking-tight hover:opacity-80 transition-opacity">Grosslight Consulting</a>
             <LanguageToggle />
           </div>
         </header>
