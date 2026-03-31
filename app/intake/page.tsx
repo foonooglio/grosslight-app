@@ -100,6 +100,36 @@ export default function IntakePage() {
   const [anythingElseB, setAnythingElseB] = useState('')
 
   const [submitting, setSubmitting] = useState(false)
+
+  function fillTestData() {
+    // Profile
+    setFirstName('Charles')
+    setLastName('Grosslight')
+    setPhone('787-555-0100')
+    setCityState('San Juan, PR')
+    setCountry('United States')
+    setIndustry('Agricultural Technology')
+    setClientType('business')
+    setCompanyName('EnPro Farms')
+    setJobTitle('Product Owner')
+    setReferralSource('other')
+    // Project
+    setSolutionInMind('yes')
+    setAppDoes('An app that tracks farm employees daily work activities, assignments, and inputs like chemicals and mix ratios across multiple farm locations.')
+    setNumUsers('2_10')
+    setJobsAccomplish('Make sure employees always know what to do. Allow managers to see what was done each day without being on-site. Track chemical usage for compliance.')
+    setInfoToTrack('Farm locations\nEmployee assignments\nDaily activities\nChemicals and mix ratios\nCompletion status')
+    setThreeFeatures('1. Kanban board showing daily tasks per employee\n2. Chemical log with mix ratios\n3. Manager dashboard with cross-farm overview')
+    setConnectToExisting('no')
+    setSeenSimilar('Jira — but way simpler and mobile-first for farm workers')
+    setWhereUse('both')
+    setNeverDoShow('Only managers can see settings and reports. Workers see only their own tasks.')
+    setDeadlineA('no')
+    setColors('Green and white — clean agricultural feel')
+    setAccessLevels('yes')
+    setComplianceA('no')
+    setAnythingElseA('Workers use Android phones in the field. Internet is spotty. Offline mode is important.')
+  }
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
 
