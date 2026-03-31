@@ -171,6 +171,9 @@ export default function AuthPage() {
           </form>
         )}
       </div>
+    <div className="text-center pb-4">
+        <span className="text-xs text-gray-300">v14</span>
+      </div>
     </div>
   )
 }
