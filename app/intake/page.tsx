@@ -129,6 +129,35 @@ export default function IntakePage() {
     setAnythingElseB('We need something simple that workers will actually use. They are not tech savvy.')
   }
 
+  function fillTestDataC() {
+    // Real Jorge Montalvo submission — Type B
+    setFirstName('Jorge')
+    setLastName('Montalvo')
+    setPhone('787-555-0400')
+    setCityState('Arecibo, PR')
+    setCountry('Puerto Rico')
+    setIndustry('Agricultor')
+    setClientType('business')
+    setCompanyName('Puerto Rico Greens LLC')
+    setJobTitle('President')
+    setReferralSource('other')
+    setSolutionInMind('no')
+    setWhatYouDo('President of Puerto Rico Greens LLC. I make sure things happen with the least risk possible across 3 farms.')
+    setProblemSolve('Making employees more productive and reliable so I can have a life. There are many farms to run and I cannot concentrate on one.')
+    setProblemGone('I can concentrate on the next projects — government permits are long and hard to get and I need time to focus on them.')
+    setHowOften('multiple_times_day')
+    setHowMany('15 employees across 3 farms')
+    setCostYou('Because there are many farms to run, I cannot concentrate on one at a time. Time management between 3 farms is the main issue.')
+    setCurrentlyHandling('Dividing the days and the mornings between farms.')
+    setWrongWithCurrent('Organization — there is none right now.')
+    setTriedAnything('Increased salaries, provided machines to facilitate field work, brought more employees.')
+    setWhoElse('Time management between 3 farms affects everyone.')
+    setDeadlineB('yes')
+    setDeadlineDateB('2026-03-31')
+    setComplianceB('no')
+    setAnythingElseB('Government permits require a lot of attention and I need to free up mental space to focus on them.')
+  }
+
   function fillTestData() {
     // Profile
     setFirstName('Jorge')
@@ -269,20 +298,27 @@ export default function IntakePage() {
       <h1 className="text-2xl font-bold text-gray-900">{t.intakeTitle}</h1>
 
       {/* Test data button */}
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-3 gap-2">
         <button
           type="button"
           onClick={fillTestData}
           className="py-2 border-2 border-dashed border-gray-300 text-gray-400 text-xs rounded-lg hover:border-green-400 hover:text-green-600 transition"
         >
-          ⚡ Type A — Jorge
+          ⚡ A — Jorge
         </button>
         <button
           type="button"
           onClick={fillTestDataB}
           className="py-2 border-2 border-dashed border-gray-300 text-gray-400 text-xs rounded-lg hover:border-blue-400 hover:text-blue-600 transition"
         >
-          ⚡ Type B — Luis
+          ⚡ B — Luis
+        </button>
+        <button
+          type="button"
+          onClick={fillTestDataC}
+          className="py-2 border-2 border-dashed border-gray-300 text-gray-400 text-xs rounded-lg hover:border-orange-400 hover:text-orange-600 transition"
+        >
+          ⚡ B — Jorge Real
         </button>
       </div>
 
