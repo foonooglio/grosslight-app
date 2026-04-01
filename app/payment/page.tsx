@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { createClient } from '@/lib/supabase'
 import { useLanguage } from '@/hooks/useLanguage'
 
 export default function PaymentPage() {
   const { t } = useLanguage()
   const router = useRouter()
-  const supabase = createClientComponentClient()
+  const supabase = createClient()
   const [paying, setPaying] = useState(false)
   const [paid, setPaid] = useState(false)
   const [error, setError] = useState('')
