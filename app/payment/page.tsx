@@ -1,53 +1,50 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase'
 import { useLanguage } from '@/hooks/useLanguage'
 
 export default function PaymentPage() {
   const { t } = useLanguage()
-  const router = useRouter()
-  const supabase = createClient()
-  const [paying, setPaying] = useState(false)
-  const [paid, setPaid] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [submissionId, setSubmissionId] = useState<string | null>(null)
 
-  const handlePay = async () => {
-    setPaying(true)
-    setError('')
-
-    try {
-      // Get current user and their latest submission
-      const { data: { user } } = await supabase.auth.getUser()
-      if (!user) throw new Error('Not logged in')
-
-      const { data: submissions, error: subError } = await supabase
+  useEffect(() => {
+    // Get the user's latest submission ID so we can pass it to Stripe
+    const supabase = createClient()
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      if (!user) return
+      supabase
         .from('intake_submissions')
-        .select('*')
+        .select('id')
         .eq('user_id', user.id)
         .order('created_at', { ascending: false })
         .limit(1)
+        .then(({ data }) => {
+          if (data?.length) setSubmissionId(data[0].id)
+        })
+    })
+  }, [])
 
-      if (subError || !submissions?.length) throw new Error('No submission found')
+  const handlePay = async () => {
+    setLoading(true)
+    setError('')
 
-      const submission = submissions[0]
-
-      // Fire the Brief Builder webhook — payment gate
-      const res = await fetch('/api/webhook/intake', {
+    try {
+      const res = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ submission })
+        body: JSON.stringify({ submissionId }),
       })
 
-      if (!res.ok) throw new Error('Payment processing failed')
-
-      setPaid(true)
-      setTimeout(() => router.push('/schedule'), 1500)
+      const data = await res.json()
+      if (data.error) throw new Error(data.error)
+      if (data.url) window.location.href = data.url
 
     } catch (e: any) {
       setError(e.message || 'Something went wrong. Please try again.')
-      setPaying(false)
+      setLoading(false)
     }
   }
 
@@ -68,22 +65,16 @@ export default function PaymentPage() {
           <div className="text-red-600 text-sm bg-red-50 rounded-lg p-3">{error}</div>
         )}
 
-        {paid ? (
-          <div className="text-green-700 font-semibold text-sm bg-green-50 rounded-lg p-3">
-            ✅ Payment confirmed — redirecting to scheduling...
-          </div>
-        ) : (
-          <button
-            onClick={handlePay}
-            disabled={paying}
-            className="block w-full py-3 bg-[#15803d] text-white font-semibold rounded-lg hover:bg-green-800 transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {paying ? 'Processing...' : 'Pay $50 — Book My Call'}
-          </button>
-        )}
+        <button
+          onClick={handlePay}
+          disabled={loading}
+          className="block w-full py-3 bg-[#15803d] text-white font-semibold rounded-lg hover:bg-green-800 transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {loading ? 'Redirecting to checkout...' : 'Pay $50 — Book My Call'}
+        </button>
 
         <p className="text-xs text-gray-400">
-          Stripe integration coming soon. For now this confirms your intent and starts your project brief.
+          Secure payment via Stripe. You will be redirected to complete payment.
         </p>
       </div>
     </div>
