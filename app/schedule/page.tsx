@@ -15,7 +15,7 @@ export default function SchedulePage() {
           Calendly embed goes here
         </div>
         <Link
-          href="/thank-you"
+          href="/payment"
           className="block w-full py-3 bg-[#15803d] text-white font-semibold rounded-lg hover:bg-green-800 transition-colors text-sm"
         >
           {t.doneSubmit}

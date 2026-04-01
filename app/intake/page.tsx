@@ -311,7 +311,7 @@ export default function IntakePage() {
       setSubmitting(false)
     } else {
       setSubmitted(true)
-      setTimeout(() => router.push('/payment'), 1000)
+      setTimeout(() => router.push('/schedule'), 1000)
     }
   }
 
