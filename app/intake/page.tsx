@@ -158,6 +158,31 @@ export default function IntakePage() {
     setAnythingElseB('Government permits require a lot of attention and I need to free up mental space to focus on them.')
   }
 
+  function fillTestDataD() {
+    // Carl Carlson — B2C, simple tic-tac-toe, 2 player only
+    setFirstName('Carl')
+    setLastName('Carlson')
+    setPhone('555-000-0000')
+    setCityState('Springfield, IL')
+    setCountry('United States')
+    setIndustry('Consumer / Personal Use')
+    setClientType('personal')
+    setReferralSource('other')
+    setSolutionInMind('yes')
+    setAppDoes('A tic-tac-toe game I can play on my phone with my kids. Two players take turns on the same device.')
+    setNumUsers('2_10')
+    setJobsAccomplish('Play a quick game with my kids without needing internet or downloads.')
+    setInfoToTrack('Game score across rounds')
+    setThreeFeatures('1. Two player mode on same phone\n2. Score tracking across multiple rounds\n3. Simple reset button to start a new game')
+    setConnectToExisting('no')
+    setSeenSimilar('Any basic tic-tac-toe app')
+    setWhereUse('both')
+    setNeverDoShow('No ads, no accounts required')
+    setDeadlineA('no')
+    setColors('Fun and colorful — blue X and red O on white background')
+    setAnythingElseA('Keep it very simple. My kids are young.')
+  }
+
   function fillTestData() {
     // Profile
     setFirstName('Jorge')
@@ -298,28 +323,11 @@ export default function IntakePage() {
       <h1 className="text-2xl font-bold text-gray-900">{t.intakeTitle}</h1>
 
       {/* Test data button */}
-      <div className="grid grid-cols-3 gap-2">
-        <button
-          type="button"
-          onClick={fillTestData}
-          className="py-2 border-2 border-dashed border-gray-300 text-gray-400 text-xs rounded-lg hover:border-green-400 hover:text-green-600 transition"
-        >
-          ⚡ A — Jorge
-        </button>
-        <button
-          type="button"
-          onClick={fillTestDataB}
-          className="py-2 border-2 border-dashed border-gray-300 text-gray-400 text-xs rounded-lg hover:border-blue-400 hover:text-blue-600 transition"
-        >
-          ⚡ B — Luis
-        </button>
-        <button
-          type="button"
-          onClick={fillTestDataC}
-          className="py-2 border-2 border-dashed border-gray-300 text-gray-400 text-xs rounded-lg hover:border-orange-400 hover:text-orange-600 transition"
-        >
-          ⚡ B — Jorge Real
-        </button>
+      <div className="grid grid-cols-2 gap-2">
+        <button type="button" onClick={fillTestData} className="py-2 border-2 border-dashed border-gray-300 text-gray-400 text-xs rounded-lg hover:border-green-400 hover:text-green-600 transition">⚡ A — Jorge</button>
+        <button type="button" onClick={fillTestDataB} className="py-2 border-2 border-dashed border-gray-300 text-gray-400 text-xs rounded-lg hover:border-blue-400 hover:text-blue-600 transition">⚡ B — Luis</button>
+        <button type="button" onClick={fillTestDataC} className="py-2 border-2 border-dashed border-gray-300 text-gray-400 text-xs rounded-lg hover:border-orange-400 hover:text-orange-600 transition">⚡ B — Jorge Real</button>
+        <button type="button" onClick={fillTestDataD} className="py-2 border-2 border-dashed border-gray-300 text-gray-400 text-xs rounded-lg hover:border-purple-400 hover:text-purple-600 transition">⚡ A — Carl (test)</button>
       </div>
 
       {/* Section 1 */}
