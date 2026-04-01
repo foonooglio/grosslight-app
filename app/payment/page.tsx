@@ -67,10 +67,10 @@ export default function PaymentPage() {
 
         <button
           onClick={handlePay}
-          disabled={loading}
+          disabled={loading || !submissionId}
           className="block w-full py-3 bg-[#15803d] text-white font-semibold rounded-lg hover:bg-green-800 transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {loading ? 'Redirecting to checkout...' : 'Pay $50 — Book My Call'}
+          {loading ? 'Redirecting to checkout...' : !submissionId ? 'Loading...' : 'Pay $50 — Book My Call'}
         </button>
 
         <p className="text-xs text-gray-400">
