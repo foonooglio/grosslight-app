@@ -81,12 +81,14 @@ export default function AuthPage() {
         </div>
 
         {tab === 'signup' ? (
-          <form onSubmit={handleSignUp} className="space-y-4">
+          <form onSubmit={handleSignUp} className="space-y-4" autoComplete="on">
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">{t.firstName}</label>
                 <input
                   type="text"
+                  name="signup-first-name"
+                  autoComplete="given-name"
                   required
                   value={firstName}
                   onChange={e => setFirstName(e.target.value)}
@@ -97,6 +99,8 @@ export default function AuthPage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">{t.lastName}</label>
                 <input
                   type="text"
+                  name="signup-last-name"
+                  autoComplete="family-name"
                   required
                   value={lastName}
                   onChange={e => setLastName(e.target.value)}
@@ -108,6 +112,7 @@ export default function AuthPage() {
               <label className="block text-sm font-medium text-gray-700 mb-1">{t.email}</label>
               <input
                 type="email"
+                name="signup-email"
                 autoComplete="email"
                 required
                 value={email}
@@ -119,7 +124,8 @@ export default function AuthPage() {
               <label className="block text-sm font-medium text-gray-700 mb-1">{t.password}</label>
               <input
                 type="password"
-                autoComplete="current-password"
+                name="signup-password"
+                autoComplete="new-password"
                 required
                 minLength={6}
                 value={password}
@@ -137,12 +143,13 @@ export default function AuthPage() {
             </button>
           </form>
         ) : (
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form onSubmit={handleLogin} className="space-y-4" autoComplete="on">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">{t.email}</label>
               <input
                 type="email"
-                autoComplete="email"
+                name="login-email"
+                autoComplete="username"
                 required
                 value={email}
                 onChange={e => setEmail(e.target.value)}
@@ -153,6 +160,7 @@ export default function AuthPage() {
               <label className="block text-sm font-medium text-gray-700 mb-1">{t.password}</label>
               <input
                 type="password"
+                name="login-password"
                 autoComplete="current-password"
                 required
                 value={password}
